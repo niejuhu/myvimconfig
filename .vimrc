@@ -11,6 +11,15 @@ set nocompatible
 set nu
 set tabstop=4
 
+" Status bar
+set laststatus=2      " always show status bar
+highlight StatusLine cterm=bold ctermfg=yellow ctermbg=blue
+function! CurDir()
+    let curdir = substitute(getcwd(), $HOME, "~", "g")
+    return curdir
+endfunction
+set statusline=%=\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}
+
 "============program=============
 syn on
 set autoindent
@@ -26,8 +35,9 @@ hi ColorColumn cterm=NONE ctermbg=darkgray
 noremap <C-c> :s/^/\/\/<CR>
 noremap <C-x> :s/^\/\//<CR>
 
-au FileType c,cpp,java call Pair()
-au FileType c,cpp,h,java set expandtab
+"au FileType c,cpp,java call Pair()
+"au FileType c,cpp,h,java,smali set expandtab
+set expandtab
 
 function Pair()
 	inoremap ( ()<Esc>i
