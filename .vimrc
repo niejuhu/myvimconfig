@@ -38,6 +38,7 @@ noremap <C-x> :s/^\/\//<CR>
 "au FileType c,cpp,java call Pair()
 "au FileType c,cpp,h,java,smali set expandtab
 set expandtab
+autocmd FileType make set noexpandtab
 
 function Pair()
 	inoremap ( ()<Esc>i
