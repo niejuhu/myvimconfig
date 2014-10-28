@@ -18,7 +18,7 @@ function! CurDir()
     let curdir = substitute(getcwd(), $HOME, "~", "g")
     return curdir
 endfunction
-set statusline=%=\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}
+set statusline=%l/%L,\ %c\ \|\ %f\ \|\ %{CurDir()}
 
 "============program=============
 syn on
