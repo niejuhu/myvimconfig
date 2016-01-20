@@ -62,6 +62,8 @@ flags = [
 #'c++',
 'c',
 '-isystem',
+'/usr/include'
+'-isystem',
 '../BoostParts',
 '-isystem',
 # This path will only work on OS X, but extra paths that don't exist are not

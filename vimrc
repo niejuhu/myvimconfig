@@ -42,7 +42,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = '✗'
+let g:syntastic_error_symbol = 'x'
 let g:syntastic_warning_symbol = '!'
 hi SyntasticWarningSign cterm=NONE ctermfg=yellow
 autocmd FileType c,cpp,python,java sign define dummy
