@@ -17,6 +17,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'scrooloose/syntastic'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'vim-airline/vim-airline'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -28,13 +29,13 @@ let NERDCommentWholeLinesInVMode=1
 
 " nerdtree
 map <Leader>n :NERDTreeToggle<CR>
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 autocmd vimenter * wincmd w
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 let NERDTreeWinPos="right"
 
 " nerdtree-tabs
-let g:nerdtree_tabs_open_on_console_startup=1
+" let g:nerdtree_tabs_open_on_console_startup=1
 
 " syntastic
 set statusline+=%#warningmsg#
@@ -61,6 +62,19 @@ set completeopt=longest,menu
 set background=dark
 colorscheme solarized
 
+" Airline
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '▶'
+let g:airline_left_alt_sep = '❯'
+let g:airline_right_sep = '◀'
+let g:airline_right_alt_sep = '❮'
+" let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+
+" let g:airline#extensions#tabline#enabled = 1
+
 " Not Plugin
 set nu
 set tabstop=4
@@ -74,13 +88,16 @@ set cc=100
 hi CursorColumn cterm=NONE
 
 syn on
-autocmd FileType c,cpp,java,python set expandtab
+set expandtab
 set foldmethod=syntax
 set foldlevelstart=99
 
-set statusline+=%l         " Current line
-set statusline+=/         " Separator
-set statusline+=%L        " Total lines
-set statusline+=%=        " Switch to the right side
-set statusline+=%f        " Path to the file
+set statusline=2
+set laststatus=2
+"set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+"set statusline+=%l         " Current line
+"set statusline+=/         " Separator
+"set statusline+=%L        " Total lines
+"set statusline+=%=        " Switch to the right side
+"set statusline+=%f        " Path to the file
 
