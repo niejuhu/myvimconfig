@@ -18,6 +18,7 @@ Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'scrooloose/syntastic'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'vim-airline/vim-airline'
+Bundle 'steffanc/cscopemaps.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
