@@ -19,6 +19,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'vim-airline/vim-airline'
 Bundle 'steffanc/cscopemaps.vim'
+Bundle 'vim-scripts/taglist.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -75,6 +76,15 @@ let g:airline_right_alt_sep = '❮'
 let g:airline_symbols.branch = '⎇'
 
 " let g:airline#extensions#tabline#enabled = 1
+
+" taglist
+let Tlist_Show_One_File = 1
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_Sort_Type = 'name'
+let Tlist_Process_File_Always = 1
+let Tlist_Update = 1
+map <Leader>t :TlistToggle<CR>
 
 " Not Plugin
 set nu
