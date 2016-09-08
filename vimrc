@@ -95,7 +95,7 @@ set backspace=indent,eol,start
 
 set cursorline
 hi CursorLine cterm=reverse
-set cc=100
+set cc=79,99
 hi CursorColumn cterm=NONE
 
 syn on
