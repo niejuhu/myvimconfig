@@ -55,8 +55,7 @@ autocmd FileType c,cpp,python,java execute 'sign place 9999 line=1 name=dummy bu
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 let g:ycm_cache_omnifunc=0
 let g:ycm_seed_identifiers_with_syntax=1
-autocmd FileType c let g:ycm_global_ycm_extra_conf=$HOME . "/.vim/.ycm_global_c_ycm_extra_conf.py"
-autocmd FileType cpp let g:ycm_global_ycm_extra_conf=$HOME . "/.vim/.ycm_global_cpp_ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf=$HOME . "/.vim/.ycm_global_ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf=0
 set completeopt=longest,menu
 
