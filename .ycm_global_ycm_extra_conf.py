@@ -64,15 +64,6 @@ flags = [
 # harmful
 ]
 
-if filetype == 'c':
-    flags += ['-xc']
-elif filetype == 'cpp':
-    flags += ['-xc++']
-    flags += ['-std=c++11']
-else:
-    flags = []
-
-
 # Set this to the absolute path to the folder (NOT the file!) containing the
 # compile_commands.json file to use that instead of 'flags'. See here for
 # more details: http://clang.llvm.org/docs/JSONCompilationDatabase.html
@@ -149,6 +140,13 @@ def GetCompilationInfoForFile( filename ):
 
 
 def FlagsForFile( filename, **kwargs ):
+  global flags
+  if filename.endswith('.c'):
+    flags += ['-xc']
+  elif filename.endswith('.cpp'):
+    flags += ['-xc++']
+    flags += ['-std=c++11']
+
   if database:
     # Bear in mind that compilation_info.compiler_flags_ does NOT return a
     # python list, but a "list-like" StringVec object

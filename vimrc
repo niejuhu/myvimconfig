@@ -110,4 +110,3 @@ set laststatus=2
 "set statusline+=%L        " Total lines
 "set statusline+=%=        " Switch to the right side
 "set statusline+=%f        " Path to the file
-
