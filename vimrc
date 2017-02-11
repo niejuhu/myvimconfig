@@ -20,6 +20,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'vim-airline/vim-airline'
 Bundle 'steffanc/cscopemaps.vim'
 Bundle 'vim-scripts/taglist.vim'
+Bundle 'ntpeters/vim-better-whitespace'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
