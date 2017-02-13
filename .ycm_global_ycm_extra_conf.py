@@ -153,7 +153,7 @@ def FlagsForFile( filename, **kwargs ):
   global flags
   if filename.endswith('.c'):
     flags += ['-xc']
-  elif filename.endswith('.cpp'):
+  elif filename.endswith('.cpp') or filename.endswith('.cc'):
     flags += ['-xc++']
     flags += ['-std=c++11']
 
