@@ -37,7 +37,7 @@ import ycm_core
 flags = [
 '-Wall',
 '-Wextra',
-'-Werror',
+#'-Werror',
 '-Wno-variadic-macros',
 # You 100% do NOT need -DUSE_CLANG_COMPLETER in your flags; only the YCM
 # source code needs it.
