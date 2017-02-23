@@ -20,6 +20,7 @@ Bundle 'steffanc/cscopemaps.vim'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'godlygeek/tabular'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -108,6 +109,12 @@ map <Leader>t :TlistToggle<CR>
 "----------------nerdcommenter----------------
 let NERDSpaceDelims=1
 let NERDCommentWholeLinesInVMode=1
+
+"----------------tabular----------------
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
 
 
 "================Language specific================
