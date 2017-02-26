@@ -121,4 +121,5 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 "
 "----------------C++----------------
 au FileType cpp set shiftwidth=2
+au FileType cpp set tabstop=2
 
