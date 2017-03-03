@@ -45,7 +45,7 @@ set statusline=2
 set laststatus=2
 
 set ruler
-set nowrapscan
+"set nowrapscan
 set nobackup
 
 "----------------Key mappings----------------
