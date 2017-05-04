@@ -21,6 +21,7 @@ Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'godlygeek/tabular'
+Bundle 'embear/vim-localvimrc'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -115,6 +116,9 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
+
+"----------------vim-localvimrc----------------
+let g:localvimrc_ask=0
 
 
 "================Language specific================
