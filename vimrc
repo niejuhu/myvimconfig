@@ -20,8 +20,8 @@ Bundle 'steffanc/cscopemaps.vim'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'godlygeek/tabular'
 Bundle 'embear/vim-localvimrc'
+Bundle 'junegunn/vim-easy-align'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -108,18 +108,21 @@ let Tlist_Update = 1
 map <Leader>t :TlistToggle<CR>
 
 "----------------nerdcommenter----------------
-let NERDSpaceDelims=1
-let NERDCommentWholeLinesInVMode=1
+let g:NERDSpaceDelims=1
+let g:NERDCommentWholeLinesInVMode=1
+let g:NERDCommentEmptyLines = 1
+let g:NERDDefaultAlign = 'left'
 
-"----------------tabular----------------
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
+"-------------vim-easy-align--------------
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 
 "----------------vim-localvimrc----------------
 let g:localvimrc_ask=0
 
+"-------------vim-better-whitespace------------
+highlight ExtraWhitespace ctermbg=red
+map <Leader>sw :StripWhitespace<CR>
 
 "================Language specific================
 "
