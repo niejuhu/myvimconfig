@@ -22,6 +22,7 @@ Bundle 'vim-scripts/taglist.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'embear/vim-localvimrc'
 Bundle 'junegunn/vim-easy-align'
+Bundle 'Chiel92/vim-autoformat'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -123,6 +124,11 @@ let g:localvimrc_ask=0
 "-------------vim-better-whitespace------------
 highlight ExtraWhitespace ctermbg=red
 map <Leader>sw :StripWhitespace<CR>
+
+"------------------vim-autoformat--------------
+noremap <F3> :Autoformat<CR>
+let b:formatdef_custom_cpp='"clang-format -style=Google"'
+let b:formatters_cpp=['custom_cpp']
 
 "================Language specific================
 "
