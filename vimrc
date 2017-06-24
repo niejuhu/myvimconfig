@@ -23,6 +23,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'embear/vim-localvimrc'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'Chiel92/vim-autoformat'
+Bundle 'udalov/kotlin-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
