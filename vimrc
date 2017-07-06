@@ -51,6 +51,9 @@ set ruler
 "set nowrapscan
 set nobackup
 
+setlocal foldmethod=syntax
+set foldlevel=99
+
 "----------------Key mappings----------------
 " Copy-to/Paste-from system clipboard
 vmap <leader>c "+y
@@ -128,8 +131,8 @@ map <Leader>sw :StripWhitespace<CR>
 
 "------------------vim-autoformat--------------
 noremap <F3> :Autoformat<CR>
-let b:formatdef_custom_cpp='"clang-format -style=Google"'
-let b:formatters_cpp=['custom_cpp']
+let g:formatdef_custom_cpp='"clang-format -style=Google"'
+let g:formatters_cpp=['custom_cpp']
 
 "================Language specific================
 "
