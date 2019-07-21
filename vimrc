@@ -56,9 +56,10 @@ let g:asyncrun_bell = 1
 let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml']
 
 nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
-nnoremap <silent> <F9> :AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
-nnoremap <silent> <F8> :AsyncRun -cwd=<root> -raw make run <cr>
-nnoremap <silent> <F7> :AsyncRun -cwd=<root> make <cr>
+nnoremap <silent> <F9> :AsyncRun g++ -std=c++11 -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" && "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+nnoremap <silent> <F8> :AsyncRun g++ -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+nnoremap <silent> <F7> :AsyncRun -cwd=<root> -raw make run <cr>
+nnoremap <silent> <F6> :AsyncRun -cwd=<root> make <cr>
 
 
 " ale
@@ -77,7 +78,8 @@ highlight ALEErrorSign ctermfg=DarkRed
 highlight ALEWarningSign ctermfg=Yellow
 
 let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
-let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++11 -Iinclude'
+let g:ale_cpp_gcc_executable = 'g++'
+let g:ale_cpp_gcc_options = '-std=c++11 -Wall -Iinclude'
 let g:ale_c_cppcheck_options = ''
 let g:ale_cpp_cppcheck_options = ''
 
@@ -87,7 +89,7 @@ let g:ale_python_pylint_use_global = 1
 
 let g:ale_linters = {
 			\   'c': ['gcc'],
-			\   'cpp': ['gcc'],
+			\   'cpp': ['g++'],
 			\   'python': ['pylint'],
 			\}
 
@@ -101,6 +103,7 @@ let g:ycm_server_log_level = 'info'
 let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings=1
+let g:ycm_complete_in_comments=1
 let g:ycm_key_invoke_completion = '<C-z>'
 set completeopt=menu,menuone
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
@@ -127,10 +130,10 @@ let g:Lf_HideHelp = 1
 let g:Lf_StlColorscheme = 'powerline'
 let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
-
 " delimitMate
 au FileType python let b:delimitMate_nesting_quotes = ['"']
-
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
 
 " autoformat
 noremap <F3> :Autoformat<cr>
