@@ -1,20 +1,126 @@
-" set encoding=utf8
 set nocompatible
-set nu
 set backspace=2
-set shiftwidth=4
-set tabstop=4
-set autoindent
-set expandtab
 " For terminator
 " set t_BE=
 
-set cc=80,100
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set to auto read when a file is changed from the outside
+set autoread
+au FocusGained,BufEnter * checktime
+
+" Remap leader
+let mapleader = ','
+
+" Fast saving
+nmap <leader>w :w!<cr>
+
+" :W sudo saves the file
+command! W w !sudo tee % > /dev/null
+
+set cc=80
 highlight ColorColumn ctermbg=darkgray
 
 aut FileType cpp,c set shiftwidth=2 expandtab
 aut FileType cpp,c set tabstop=2 expandtab
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => UI
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc,*/.git/*,*/.DS_Store
+
+" Always show current position
+set ruler
+
+" Search
+set hlsearch
+set incsearch
+"map <client> <leader><cr> :noh<cr>
+map <leader>/ :noh<cr>
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" Add a bit extra margin to the left
+set foldcolumn=1
+
+set so=7
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and fonts
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+try
+    colorscheme desert
+catch
+endtry
+set background=dark
+set encoding=utf8
+set ffs=unix,mac,dos
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nobackup
+set nowb
+set noswapfile
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set expandtab
+set smarttab
+set autoindent
+set smartindent
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+" Linebreak on 100
+set lbr
+set tw=100
+set wrap
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Buffers, windows and tabs
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+
+" Useful mappings for managing tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+map <leader>tt :tabnext
+map <leader>tp :tabprev
+
+" Let 'tl' toggle between this and the last accessed tab
+let g:lasttab = 1
+nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
+
+" Opens a new tab with the current buffer's path
+" Super useful when editing files in the same directory
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug manager
 call plug#begin('~/.vim/plugged')
 Plug 'ludovicchabant/vim-gutentags'
