@@ -79,9 +79,9 @@ set smartindent
 set shiftwidth=4
 set tabstop=4
 " Linebreak on 100
-set lbr
-set tw=100
-set wrap
+" set lbr
+" set tw=100
+" set wrap
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Buffers, windows and tabs
