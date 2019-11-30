@@ -49,6 +49,21 @@ set tm=500
 
 set so=7
 
+" Toggle Number and SignColumn. Useful when copy
+noremap <leader>c1 :set nu!<cr>
+noremap <leader>c2 :call ToggleSignColumn()<cr>
+" Toggle signcolumn. Works only on vim>=8.0 or NeoVim
+function! ToggleSignColumn()
+    if !exists("b:signcolumn_on") || b:signcolumn_on
+        set signcolumn=no
+        let b:signcolumn_on=0
+    else
+        set signcolumn=auto
+        let b:signcolumn_on=1
+    endif
+endfunction
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and fonts
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -168,8 +183,8 @@ let g:asyncrun_bell = 1
 let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml']
 
 nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
-nnoremap <silent> <F9> :AsyncRun g++ -std=c++11 -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" && "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
-nnoremap <silent> <F8> :AsyncRun g++ -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+nnoremap <silent> <F9> :AsyncRun clang++ -std=c++11 -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" && "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+nnoremap <silent> <F8> :AsyncRun clang++ -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
 nnoremap <silent> <F7> :AsyncRun -cwd=<root> -raw make run <cr>
 nnoremap <silent> <F6> :AsyncRun -cwd=<root> make <cr>
 
