@@ -22,8 +22,6 @@ command! W w !sudo tee % > /dev/null
 set cc=80
 highlight ColorColumn ctermbg=darkgray
 
-aut FileType cpp,c set shiftwidth=2 expandtab
-aut FileType cpp,c set tabstop=2 expandtab
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => UI
@@ -47,9 +45,10 @@ set t_vb=
 set tm=500
 
 " Add a bit extra margin to the left
-set foldcolumn=1
+" set foldcolumn=1
 
 set so=7
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and fonts
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -71,7 +70,7 @@ set noswapfile
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set expandtab
+" set expandtab
 set smarttab
 set autoindent
 set smartindent
@@ -117,6 +116,13 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => FileType
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+aut FileType cpp,c set shiftwidth=2 expandtab
+aut FileType cpp,c set tabstop=2 expandtab
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
@@ -179,9 +185,14 @@ let g:ale_lint_on_insert_leave = 1
 let g:airline#extensions#ale#enabled = 1
 
 let g:ale_sign_column_always = 1
+highlight clear SignColumn
 let g:ale_set_highlights = 0
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
 highlight ALEErrorSign ctermfg=DarkRed
 highlight ALEWarningSign ctermfg=Yellow
+"highlight clear ALEErrorSign
+"highlight clear ALEWarningSign
 
 let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
 let g:ale_cpp_gcc_executable = 'g++'
