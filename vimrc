@@ -154,6 +154,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " tags
@@ -296,3 +297,6 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
+
+" Goyo
+nnoremap <silent> <leader>z :Goyo<cr>
