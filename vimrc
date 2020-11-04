@@ -19,8 +19,6 @@ nmap <leader>w :w!<cr>
 " :W sudo saves the file
 command! W w !sudo tee % > /dev/null
 
-set cc=80
-highlight ColorColumn ctermbg=darkgray
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -67,13 +65,15 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and fonts
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set background=dark
 try
     colorscheme desert
 catch
 endtry
-set background=dark
 set encoding=utf8
 set ffs=unix,mac,dos
+
+set guifont=Monaco:h14
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -139,6 +139,7 @@ map <C-l> <C-W>l
 aut FileType cpp,c set shiftwidth=2 expandtab
 aut FileType cpp,c set tabstop=2 expandtab
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -155,7 +156,11 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/goyo.vim'
+Plug 'kelwin/vim-smali'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-scripts/taglist.vim'
 call plug#end()
+
 
 " tags
 set tags=./.tags;,.tags
@@ -278,6 +283,7 @@ let g:autoformat_remove_trailing_spaces = 0
 let g:formatdef_my_custom_cpp = '"clang-format --style=Google"'
 let g:formatters_c = ['my_custom_cpp']
 let g:formatters_cpp = ['my_custom_cpp']
+let g:formatter_yapf_style = 'pep8'
 
 
 " NerdCommenter
@@ -300,3 +306,14 @@ let g:NERDToggleCheckAllLines = 1
 
 " Goyo
 nnoremap <silent> <leader>z :Goyo<cr>
+
+" Taglist
+let g:Tlist_Exit_OnlyWindow = 1
+let g:Tlist_Show_One_File = 1
+
+
+"""""""""""""""""""""""""""""
+" General 2
+"""""""""""""""""""""""""""""
+set cc=80
+highlight ColorColumn ctermbg=darkgray guibg=darkgray
